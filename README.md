@@ -12,13 +12,6 @@ PlayItForward is a web app that aims to incentivize volunteers to contribute to 
 -  Volunteers can sign up to attend an event and gain points
 -  Volunteers can edit their information and see their stat page
 
-## Technologies Used 
-- React 
-- Apollo
-- TypeScript
-- GraphQL
-- Tailwind 
-
 ## Installation
 
 Installation and setup steps coming soon!
