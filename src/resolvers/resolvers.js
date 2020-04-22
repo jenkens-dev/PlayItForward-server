@@ -4,7 +4,6 @@ const resolvers = {
     events: () => data.events,
     event: (obj, { id }, context, info) =>
       data.events.find((event) => event.id === id),
-    volunteers: () => data.volunteers,
     nonprofits: () => data.nonprofits,
   },
 };

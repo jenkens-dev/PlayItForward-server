@@ -33,7 +33,7 @@ const typeDefs = gql`
   type Query {
     events: [Event!]!
     event(id: Int!): Event!
-    volunteers: [Volunteer!]!
+    
     nonprofits: [Nonprofit!]!
     hi: String!
   }

@@ -14,7 +14,7 @@ const resolvers = mergeResolvers(
   fileLoader(path.join(__dirname, './resolvers')),
 );
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({ typeDefs, resolvers, context: { models } });
 
 models.sequelize.sync({ force: true }).then(() => {
   server.listen().then(({ url }) => {
