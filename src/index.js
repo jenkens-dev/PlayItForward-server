@@ -1,5 +1,6 @@
 const { ApolloServer, gql } = require('apollo-server');
 const data = require('./mockData');
+const models = require('./models');
 
 const typeDefs = gql`
   type Event {
@@ -18,6 +19,7 @@ const typeDefs = gql`
     displayName: String
     mission: String
     username: String!
+    events: [Event!]!
   }
 
   type Volunteer {
@@ -51,6 +53,9 @@ const resolvers = {
 const server = new ApolloServer({ typeDefs, resolvers });
 
 // The `listen` method launches a web server.
-server.listen().then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`);
+
+models.sequelize.sync().then(() => {
+  server.listen().then(({ url }) => {
+    console.log(`🚀  Server ready at ${url}`);
+  });
 });
