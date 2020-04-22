@@ -4,7 +4,7 @@ const models = require('./models');
 
 const typeDefs = gql`
   type Event {
-    id: ID!
+    id: Int!
     title: String!
     date: String
     address: String
@@ -12,7 +12,7 @@ const typeDefs = gql`
   }
 
   type Nonprofit {
-    id: ID!
+    id: Int!
     contact: String!
     description: String
     logo: String
@@ -23,7 +23,7 @@ const typeDefs = gql`
   }
 
   type Volunteer {
-    id: ID!
+    id: Int!
     firstName: String
     lastName: String
     username: String!
@@ -34,7 +34,7 @@ const typeDefs = gql`
 
   type Query {
     events: [Event!]!
-    event(id: ID!): Event!
+    event(id: Int!): Event!
     volunteers: [Volunteer!]!
     nonprofits: [Nonprofit!]!
   }
