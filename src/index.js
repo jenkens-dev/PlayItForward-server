@@ -54,7 +54,7 @@ const server = new ApolloServer({ typeDefs, resolvers });
 
 // The `listen` method launches a web server.
 
-models.sequelize.sync().then(() => {
+models.sequelize.sync({ force: true }).then(() => {
   server.listen().then(({ url }) => {
     console.log(`🚀  Server ready at ${url}`);
   });
