@@ -1,5 +1,4 @@
 const { ApolloServer } = require('apollo-server');
-const data = require('./mockData');
 const models = require('./models');
 const path = require('path');
 const {

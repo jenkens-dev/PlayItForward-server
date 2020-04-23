@@ -1,14 +1,18 @@
 const resolvers = {
   Query: {
-    getNonprofit: (parent, { id }, { models }) =>
-      models.nonprofit.findOne({ where: { id } }),
-    getNonprofits: (parent, args, { models }) =>
-      models.nonprofit.findAll()
+    getNonprofit: (parent, { id }, { models }) => {
+      return models.nonprofit.findOne({ where: { id } });
+    },
+    getNonprofits: (parent, args, { models }) => {
+      return models.nonprofit.findAll();
+    },
   },
 
   Mutation: {
-    createNonprofit: (parent, {username}, { models }) => models.nonprofit.create(username)
-  }
+    createNonprofit: (parent, args, { models }) => {
+      return models.nonprofit.create(args);
+    },
+  },
 };
 
 module.exports = resolvers;

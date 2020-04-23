@@ -7,7 +7,16 @@ const event = gql`
     date: String
     address: String
     nonprofit: Nonprofit!
-    volunteers: [Volunteer!]!
+    volunteers: [Volunteer!]
+  }
+
+  type Query {
+    getEvent(id: Int!): Event!
+    getEvents: [Event!]!
+  }
+
+  type Mutation {
+    createEvent(title: String!, nonprofitId: Int!): Event!
   }
 `;
 
