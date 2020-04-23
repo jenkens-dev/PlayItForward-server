@@ -18,10 +18,8 @@ const nonprofit = gql`
   }
 
   type Mutation {
-    createNonprofit(username: String!): Nonprofit!
+    registerNonprofit(username: String!, password: String!): Boolean!
   }
 `;
-
-
 
 module.exports = nonprofit;

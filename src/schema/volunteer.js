@@ -17,7 +17,7 @@ const volunteer = gql`
   }
 
   type Mutation {
-    createVolunteer(username: String!): Volunteer!
+    registerVolunteer(username: String!, password: String!): Boolean!
   }
 `;
 

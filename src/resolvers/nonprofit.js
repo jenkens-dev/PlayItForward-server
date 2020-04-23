@@ -1,3 +1,5 @@
+const bcrypt = require('bcrypt');
+
 const resolvers = {
   Query: {
     getNonprofit: (parent, { id }, { models }) => {
@@ -9,8 +11,21 @@ const resolvers = {
   },
 
   Mutation: {
-    createNonprofit: (parent, args, { models }) => {
-      return models.nonprofit.create(args);
+    registerNonprofit: async (
+      parent,
+      { password, ...otherArgs },
+      { models },
+    ) => {
+      try {
+        const hashedPassword = await bcrypt.hash(password, 12);
+        await models.nonprofit.create({
+          ...otherArgs,
+          password: hashedPassword,
+        });
+        return true;
+      } catch (err) {
+        return false;
+      }
     },
   },
 };
