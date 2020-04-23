@@ -1,7 +1,7 @@
 const data = {
   events: [
     {
-      id: '1',
+      id: 1,
       title: 'Event 1',
       date: '2020-03-28',
       address: '1234 Somewhere St, Seattle, WA, 98177',
@@ -11,7 +11,7 @@ const data = {
       },
     },
     {
-      id: '2',
+      id: 2,
       title: 'Event 2',
       date: '2020-04-22',
       address: '5678 Somewhere St, Seattle, WA, 98177',
@@ -21,7 +21,7 @@ const data = {
       },
     },
     {
-      id: '3',
+      id: 3,
       title: 'Event 3',
       date: '2020-04-22',
       address: '5678 Somewhere St, Seattle, WA, 98177',
@@ -34,7 +34,7 @@ const data = {
 
   nonprofits: [
     {
-      id: '1',
+      id: 1,
       contact: 'Hav Ingphawn',
       description:
         'Gerbils are fantastic. The only downside is their life span. But maybe if you love them enough, the hamsters will cease to abide by the rules of longevity. Maybe, just maybe, they might stop following rules at all. Maybe love is the answer. Hamster love. Gerbil love. Human love.',
@@ -44,7 +44,7 @@ const data = {
       username: 'gap',
     },
     {
-      id: '2',
+      id: 2,
       contact: 'Hav Ingphawn',
       description:
         'Gerbils are fantastic. The only downside is their life span. But maybe if you love them enough, the gerbils will cease to abide by the rules of longevity. Maybe, just maybe, they might stop following rules at all. Maybe love is the answer. Diamonds are forever, but Gerbil love is FOREVER.',
@@ -54,7 +54,7 @@ const data = {
       username: 'gap',
     },
     {
-      id: '3',
+      id: 3,
       contact: 'Hav Ingphawn',
       description:
         'Gerbils are fantastic. The only downside is their life span. But maybe if you love them enough, the gerbils will cease to abide by the rules of longevity. Maybe, just maybe, they might stop following rules at all. Maybe love is the answer. Diamonds are forever, but Gerbil love is FOREVER.',
@@ -66,7 +66,7 @@ const data = {
   ],
   volunteers: [
     {
-      id: '1',
+      id: 1,
       firstName: 'Senna',
       lastName: 'the Redeemer',
       username: 'theSennaGod',
@@ -75,7 +75,7 @@ const data = {
       points: 1000,
     },
     {
-      id: '2',
+      id: 2,
       firstName: 'Kayle',
       lastName: 'the Righteous',
       username: 'kaylebot',
@@ -84,7 +84,7 @@ const data = {
       points: 100,
     },
     {
-      id: '3',
+      id: 3,
       firstName: 'Gurp',
       lastName: 'the Consumer of Garbage',
       username: 'myteamisossim',

@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
     Event.belongsTo(models.nonprofit, {
       foreignKey: 'nonprofitId',
     });
+    Event.belongsToMany(models.volunteer, {
+      through: 'event_volunteer',
+      foreignKey: 'eventId',
+    });
   };
 
   return Event;

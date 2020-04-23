@@ -2,6 +2,9 @@ const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize('pif', 'postgres', 'postgres', {
   dialect: 'postgres',
+  define: {
+    underscored: true,
+  },
 });
 
 const models = {

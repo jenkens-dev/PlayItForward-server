@@ -11,11 +11,12 @@ module.exports = (sequelize, DataTypes) => {
     points: DataTypes.INTEGER,
   });
 
-  //   Volunteer.associate = (models) => {
-  //     Volunteer.belongsTo(models.nonprofit, {
-  //       foreignKey: 'nonprofitId',
-  //     });
-  //   };
+  Volunteer.associate = (models) => {
+    Volunteer.belongsToMany(models.event, {
+      through: 'event_volunteer',
+      foreignKey: 'volunteerId',
+    });
+  };
 
   return Volunteer;
 };
