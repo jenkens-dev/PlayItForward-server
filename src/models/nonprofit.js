@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       unique: true,
     },
+    password: DataTypes.STRING,
   });
 
   Nonprofit.associate = (models) => {

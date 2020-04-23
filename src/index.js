@@ -15,7 +15,7 @@ const resolvers = mergeResolvers(
 
 const server = new ApolloServer({ typeDefs, resolvers, context: { models } });
 
-models.sequelize.sync({}).then(() => {
+models.sequelize.sync({ force: true }).then(() => {
   server.listen().then(({ url }) => {
     console.log(`🚀  Server ready at ${url}`);
   });
