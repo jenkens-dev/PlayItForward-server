@@ -1,4 +1,13 @@
 const bcrypt = require('bcrypt');
+const _ = require('lodash');
+
+const formatErrors = (e, models) => {
+  if (e instanceof models.Sequelize.ValidationError) {
+    //  _.pick({a: 1, b: 2}, 'a') => {a: 1}
+    return e.errors.map((x) => _.pick(x, ['path', 'message']));
+  }
+  return [{ path: 'name', message: 'something went wrong' }];
+};
 
 const resolvers = {
   Query: {
@@ -18,13 +27,16 @@ const resolvers = {
     ) => {
       try {
         const hashedPassword = await bcrypt.hash(password, 12);
-        await models.nonprofit.create({
+        let nonprofit = await models.nonprofit.create({
           ...otherArgs,
           password: hashedPassword,
         });
-        return true;
+        return {
+          ok: true,
+          nonprofit,
+        };
       } catch (err) {
-        return false;
+        return { ok: false, errors: formatErrors(err, models) };
       }
     },
   },

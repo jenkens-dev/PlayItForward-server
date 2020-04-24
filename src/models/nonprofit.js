@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       allowNull: false,
       validate: {
-        notNull: { args: true, msg: 'Please provide a password' },
+        notNull: { args: true, msg: 'Please provide a username' },
       },
     },
     password: {

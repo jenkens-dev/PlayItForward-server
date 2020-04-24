@@ -17,8 +17,14 @@ const nonprofit = gql`
     getNonprofit(id: Int!): Nonprofit!
   }
 
+  type RegisterResponse {
+    ok: Boolean!
+    nonprofit: Nonprofit
+    errors: [Error!]
+  }
+
   type Mutation {
-    registerNonprofit(username: String!, password: String!): Boolean!
+    registerNonprofit(username: String!, password: String!): RegisterResponse!
   }
 `;
 
