@@ -23,8 +23,20 @@ const nonprofit = gql`
     errors: [Error!]
   }
 
+  type LoginResponse {
+    ok: Boolean!
+    token: String
+    refreshToken: String
+    errors: [Error!]
+  }
+
   type Mutation {
     registerNonprofit(username: String!, password: String!): RegisterResponse!
+    loginNonprofit(
+      username: String!
+      password: String!
+      type: String!
+    ): LoginResponse!
   }
 `;
 

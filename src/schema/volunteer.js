@@ -22,8 +22,20 @@ const volunteer = gql`
     errors: [Error!]
   }
 
+  type LoginResponse {
+    ok: Boolean!
+    token: String
+    refreshToken: String
+    errors: [Error!]
+  }
+
   type Mutation {
     registerVolunteer(username: String!, password: String!): RegisterResponse!
+    loginVolunteer(
+      username: String!
+      password: String!
+      type: String!
+    ): LoginResponse!
   }
 `;
 

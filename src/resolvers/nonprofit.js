@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
+const tryLogin = require('../auth');
 
 const formatErrors = (e, models) => {
   if (e instanceof models.Sequelize.ValidationError) {
