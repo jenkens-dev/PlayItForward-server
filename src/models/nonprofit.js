@@ -8,8 +8,18 @@ module.exports = (sequelize, DataTypes) => {
     username: {
       type: DataTypes.STRING,
       unique: true,
+      allowNull: false,
+      validate: {
+        notNull: { args: true, msg: 'Please provide a password' },
+      },
     },
-    password: DataTypes.STRING,
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: { args: true, msg: 'Please provide a password' },
+      },
+    },
   });
 
   Nonprofit.associate = (models) => {

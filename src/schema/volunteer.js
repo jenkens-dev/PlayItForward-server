@@ -16,8 +16,14 @@ const volunteer = gql`
     getVolunteer(id: Int!): Volunteer!
   }
 
+  type RegisterResponse {
+    ok: Boolean!
+    volunteer: Volunteer
+    errors: [Error!]
+  }
+
   type Mutation {
-    registerVolunteer(username: String!, password: String!): Boolean!
+    registerVolunteer(username: String!, password: String!): RegisterResponse!
   }
 `;
 

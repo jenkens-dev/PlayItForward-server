@@ -5,8 +5,18 @@ module.exports = (sequelize, DataTypes) => {
     username: {
       type: DataTypes.STRING,
       unique: true,
+      allowNull: false,
+      validate: {
+        notNull: { args: true, msg: 'Please provide a username' },
+      },
     },
-    password: DataTypes.STRING,
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: { args: true, msg: 'Please provide a password' },
+      },
+    },
     image: DataTypes.STRING,
     bio: DataTypes.STRING,
     points: DataTypes.INTEGER,
