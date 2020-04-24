@@ -7,15 +7,22 @@ const {
   mergeResolvers,
 } = require('merge-graphql-schemas');
 
+const SECRET = 'ahduojaknsdajkdahlnsjd';
+const SECRET2 = 'adhalsdjasdnlajghuadh';
+
 const typeDefs = mergeTypes(fileLoader(path.join(__dirname, './schema')));
 
 const resolvers = mergeResolvers(
   fileLoader(path.join(__dirname, './resolvers')),
 );
 
-const server = new ApolloServer({ typeDefs, resolvers, context: { models } });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: { models, SECRET, SECRET2 },
+});
 
-models.sequelize.sync({ force: true }).then(() => {
+models.sequelize.sync().then(() => {
   server.listen().then(({ url }) => {
     console.log(`🚀  Server ready at ${url}`);
   });

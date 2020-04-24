@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
-const tryLogin = require('../auth');
+const { tryLogin } = require('../auth');
 
 const formatErrors = (e, models) => {
   if (e instanceof models.Sequelize.ValidationError) {
@@ -21,6 +21,11 @@ const resolvers = {
   },
 
   Mutation: {
+    loginNonprofit: (
+      parent,
+      { username, password, type },
+      { models, SECRET, SECRET2 },
+    ) => tryLogin(username, password, type, models, SECRET, SECRET2),
     registerNonprofit: async (
       parent,
       { password, ...otherArgs },
