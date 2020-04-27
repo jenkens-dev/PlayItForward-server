@@ -46,6 +46,9 @@ const resolvers = {
       }
     },
   },
+  Nonprofit: {
+    events: ({id}, args, {models}) => models.event.findAll({nonprofitId: id})
+  }
 };
 
 module.exports = resolvers;
