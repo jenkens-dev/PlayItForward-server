@@ -1,14 +1,6 @@
 const bcrypt = require('bcrypt');
-const _ = require('lodash');
+const formatErrors = require('../formatErrors');
 const { tryLogin } = require('../auth');
-
-const formatErrors = (e, models) => {
-  if (e instanceof models.Sequelize.ValidationError) {
-    //  _.pick({a: 1, b: 2}, 'a') => {a: 1}
-    return e.errors.map((x) => _.pick(x, ['path', 'message']));
-  }
-  return [{ path: 'name', message: 'something went wrong' }];
-};
 
 const resolvers = {
   Query: {
@@ -47,8 +39,10 @@ const resolvers = {
     },
   },
   Nonprofit: {
-    events: ({id}, args, {models}) => models.event.findAll({nonprofitId: id})
-  }
+    events: ({ id }, args, { models }) => {
+      return models.event.findAll({ nonprofitId: id });
+    },
+  },
 };
 
 module.exports = resolvers;

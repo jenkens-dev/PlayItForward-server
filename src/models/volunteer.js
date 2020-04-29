@@ -19,12 +19,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     image: DataTypes.STRING,
     bio: DataTypes.STRING,
-    points: DataTypes.INTEGER,
+    points: { type: DataTypes.INTEGER, defaultValue: 0 },
   });
 
   Volunteer.associate = (models) => {
     Volunteer.belongsToMany(models.event, {
-      through: 'event_volunteer',
+      through: models.eventVolunteer,
       foreignKey: 'volunteerId',
     });
   };

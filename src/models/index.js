@@ -11,6 +11,7 @@ const models = {
   event: sequelize.import('./event'),
   nonprofit: sequelize.import('./nonprofit'),
   volunteer: sequelize.import('./volunteer'),
+  eventVolunteer: sequelize.import('./event_volunteer'),
 };
 
 Object.keys(models).forEach((modelName) => {

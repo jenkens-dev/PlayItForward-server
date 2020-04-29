@@ -15,8 +15,14 @@ const event = gql`
     getEvents: [Event!]!
   }
 
+  type VoidResponse {
+    ok: Boolean!
+    errors: [Error!]
+  }
+
   type Mutation {
     createEvent(title: String!, nonprofitId: Int!): Event!
+    addVolunteer(username: String!, eventId: Int!): VoidResponse!
   }
 `;
 

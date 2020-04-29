@@ -22,7 +22,7 @@ const server = new ApolloServer({
   context: { models, SECRET, SECRET2 },
 });
 
-models.sequelize.sync().then(() => {
+models.sequelize.sync({ force: false }).then(() => {
   server.listen().then(({ url }) => {
     console.log(`🚀  Server ready at ${url}`);
   });
