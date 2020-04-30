@@ -17,11 +17,27 @@ const nonprofit = gql`
     getNonprofit(id: Int!): Nonprofit!
   }
 
+  type RegisterResponse {
+    ok: Boolean!
+    nonprofit: Nonprofit
+    errors: [Error!]
+  }
+
+  type LoginResponse {
+    ok: Boolean!
+    token: String
+    refreshToken: String
+    errors: [Error!]
+  }
+
   type Mutation {
-    createNonprofit(username: String!): Nonprofit!
+    registerNonprofit(username: String!, password: String!): RegisterResponse!
+    loginNonprofit(
+      username: String!
+      password: String!
+      type: String!
+    ): LoginResponse!
   }
 `;
-
-
 
 module.exports = nonprofit;

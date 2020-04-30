@@ -5,15 +5,26 @@ module.exports = (sequelize, DataTypes) => {
     username: {
       type: DataTypes.STRING,
       unique: true,
+      allowNull: false,
+      validate: {
+        notNull: { args: true, msg: 'Please provide a username' },
+      },
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: { args: true, msg: 'Please provide a password' },
+      },
     },
     image: DataTypes.STRING,
     bio: DataTypes.STRING,
-    points: DataTypes.INTEGER,
+    points: { type: DataTypes.INTEGER, defaultValue: 0 },
   });
 
   Volunteer.associate = (models) => {
     Volunteer.belongsToMany(models.event, {
-      through: 'event_volunteer',
+      through: models.eventVolunteer,
       foreignKey: 'volunteerId',
     });
   };

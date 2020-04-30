@@ -16,8 +16,26 @@ const volunteer = gql`
     getVolunteer(id: Int!): Volunteer!
   }
 
+  type RegisterResponse {
+    ok: Boolean!
+    volunteer: Volunteer
+    errors: [Error!]
+  }
+
+  type LoginResponse {
+    ok: Boolean!
+    token: String
+    refreshToken: String
+    errors: [Error!]
+  }
+
   type Mutation {
-    createVolunteer(username: String!): Volunteer!
+    registerVolunteer(username: String!, password: String!): RegisterResponse!
+    loginVolunteer(
+      username: String!
+      password: String!
+      type: String!
+    ): LoginResponse!
   }
 `;
 
