@@ -7,12 +7,7 @@ const event = gql`
     date: String
     address: String
     nonprofit: Nonprofit!
-    volunteers: [Volunteer]
-  }
-
-  type EventVolunteer {
-    volunteerId: Int!
-    eventId: Int!
+    volunteers: [Volunteer!]
   }
 
   type Query {
