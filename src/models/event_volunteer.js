@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize) => {
   const EventVolunteer = sequelize.define('eventVolunteer', {});
 
   return EventVolunteer;

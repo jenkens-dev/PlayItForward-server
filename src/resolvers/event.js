@@ -46,7 +46,17 @@ const resolvers = {
         where: { id: event.nonprofitId },
       });
     },
-    volunteers: async (parent, args, { models }) => {},
+    volunteers: async ({ id }, args, { models }) => {
+      const event = await models.event.findOne({ where: id });
+      const eventVolunteers = await models.eventVolunteer.findAll({
+        where: { eventId: event.id },
+      });
+      return eventVolunteers.map((eventVolunteer) => {
+        return models.volunteer.findOne({
+          where: { id: eventVolunteer.volunteerId },
+        });
+      });
+    },
   },
 };
 
