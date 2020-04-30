@@ -40,9 +40,13 @@ const resolvers = {
     },
   },
   Event: {
-    nonprofit: ({ id }, args, { models }) => {
-      return models.event.findAll({ nonprofitId: id });
+    nonprofit: async ({ id }, args, { models }) => {
+      const event = await models.event.findOne({ where: id });
+      return await models.nonprofit.findOne({
+        where: { id: event.nonprofitId },
+      });
     },
+    volunteers: async (parent, args, { models }) => {},
   },
 };
 
