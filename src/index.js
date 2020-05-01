@@ -20,6 +20,7 @@ const resolvers = mergeResolvers(
 const server = new ApolloServer({
   cors: {
     origin: '*',
+    credentials: true,
   },
   typeDefs,
   resolvers,
@@ -27,7 +28,7 @@ const server = new ApolloServer({
 });
 
 models.sequelize.sync({ force: false }).then(() => {
-  server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
+  server.listen().then(({ url }) => {
     console.log(`🚀  Server ready at ${url}`);
   });
 });
