@@ -18,10 +18,7 @@ const resolvers = mergeResolvers(
 );
 
 const server = new ApolloServer({
-  cors: {
-    origin: '*',
-    credentials: true,
-  },
+  cors: true,
   typeDefs,
   resolvers,
   context: { models, SECRET, SECRET2 },
