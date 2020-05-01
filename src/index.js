@@ -6,6 +6,7 @@ const {
   mergeTypes,
   mergeResolvers,
 } = require('merge-graphql-schemas');
+const cors = require('cors');
 
 const SECRET = 'ahduojaknsdajkdahlnsjd';
 const SECRET2 = 'adhalsdjasdnlajghuadh';
@@ -17,13 +18,16 @@ const resolvers = mergeResolvers(
 );
 
 const server = new ApolloServer({
+  cors: {
+    origin: '*',
+  },
   typeDefs,
   resolvers,
   context: { models, SECRET, SECRET2 },
 });
 
 models.sequelize.sync({ force: false }).then(() => {
-  server.listen().then(({ url }) => {
+  server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
     console.log(`🚀  Server ready at ${url}`);
   });
 });
