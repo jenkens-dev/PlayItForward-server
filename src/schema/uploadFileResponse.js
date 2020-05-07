@@ -1,6 +1,6 @@
-const { gql } = require('apollo-server');
+import { gql } from 'apollo-server';
 
-const fileUpload = gql`
+export default gql`
   type UploadedFileResponse {
     filename: String!
     mimetype: String!
@@ -12,5 +12,3 @@ const fileUpload = gql`
     singleUpload(file: Upload!): UploadedFileResponse!
   }
 `;
-
-module.exports = fileUpload;

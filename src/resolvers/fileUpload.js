@@ -1,13 +1,15 @@
-const resolvers = {
-  Mutation: {
-    singleUpload: async (parent, { file }) => {
-      const { stream, filename, mimetype, encoding } = await file;
+// import { AWSS3Uploader } from '../lib/uploaders/s3.ts';
 
-      // Do work 💪
+// const s3Uploader = new AWSS3Uploader({
+//   accessKeyId: process.env.AWS_ACCESS_KEY,
+//   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+//   destinationBucketName: 'test-graphql-uploads',
+// });
 
-      return { filename, mimetype, encoding, url: '' };
-    },
-  },
-};
+// const resolvers = {
+//   Mutation: {
+//     singleUpload: s3Uploader.singleFileUploadResolver.bind(s3Uploader),
+//   },
+// };
 
-module.exports = resolvers;
+// module.exports = resolvers;
