@@ -1,6 +1,6 @@
-const formatErrors = require('../formatErrors');
+import formatErrors from '../formatErrors';
 
-const resolvers = {
+export default {
   Query: {
     getEvent: (parent, { id }, { models }) => {
       return models.event.findOne({ where: { id } });
@@ -62,5 +62,3 @@ const resolvers = {
     },
   },
 };
-
-module.exports = resolvers;
