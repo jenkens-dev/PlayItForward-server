@@ -45,6 +45,19 @@ const resolvers = {
       }
     },
   },
+  Volunteer: {
+    events: async ({ id }, args, { models }) => {
+      const volunteer = await models.volunteer.findOne({ where: id });
+      const eventVolunteers = await models.eventVolunteer.findAll({
+        where: { volunteerId: volunteer.id },
+      });
+      return eventVolunteers.map((eventVolunteer) => {
+        return models.event.findOne({
+          where: { id: eventVolunteer.eventId },
+        });
+      });
+    },
+  },
 };
 
 module.exports = resolvers;
