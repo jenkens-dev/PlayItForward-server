@@ -1,3 +1,5 @@
+import { ReadStream } from 'fs';
+
 export namespace ApolloServerFileUploads {
   export type File = {
     filename: string;
