@@ -1,4 +1,4 @@
-import Sequelize from 'sequelize';
+const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize('pif', 'postgres', 'postgres', {
   dialect: 'postgres',
@@ -23,4 +23,4 @@ Object.keys(models).forEach((modelName) => {
 models.sequelize = sequelize;
 models.Sequelize = Sequelize;
 
-export default models;
+module.exports = models;

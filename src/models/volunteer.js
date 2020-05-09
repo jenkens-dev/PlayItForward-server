@@ -1,4 +1,4 @@
-export default (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
   const Volunteer = sequelize.define('volunteer', {
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,

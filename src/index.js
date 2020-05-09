@@ -1,8 +1,11 @@
-import { ApolloServer } from 'apollo-server';
-import models from './models';
-import path from 'path';
-import { fileLoader, mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
-import cors from 'cors';
+const { ApolloServer } = require('apollo-server');
+const models = require('./models');
+const path = require('path');
+const {
+  fileLoader,
+  mergeTypes,
+  mergeResolvers,
+} = require('merge-graphql-schemas');
 
 const SECRET = 'ahduojaknsdajkdahlnsjd';
 const SECRET2 = 'adhalsdjasdnlajghuadh';

@@ -1,6 +1,6 @@
-import { gql } from 'apollo-server';
+const { gql } = require('apollo-server');
 
-export default gql`
+const volunteer = gql`
   type Volunteer {
     id: Int!
     firstName: String
@@ -38,3 +38,5 @@ export default gql`
     ): LoginResponse!
   }
 `;
+
+module.exports = volunteer;

@@ -1,4 +1,4 @@
-export default (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
   const Nonprofit = sequelize.define('nonprofit', {
     contact: DataTypes.STRING,
     description: DataTypes.STRING,

@@ -1,6 +1,6 @@
-import { gql } from 'apollo-server';
+const { gql } = require('apollo-server');
 
-export default gql`
+const nonprofit = gql`
   type Nonprofit {
     id: Int!
     contact: String
@@ -39,3 +39,5 @@ export default gql`
     ): LoginResponse!
   }
 `;
+
+module.exports = nonprofit;

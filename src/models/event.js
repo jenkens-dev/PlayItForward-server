@@ -1,4 +1,4 @@
-export default (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
   const Event = sequelize.define('event', {
     title: DataTypes.STRING,
     date: DataTypes.STRING,

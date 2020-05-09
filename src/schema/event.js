@@ -1,6 +1,6 @@
-import { gql } from 'apollo-server';
+const { gql } = require('apollo-server');
 
-export default gql`
+const event = gql`
   type Event {
     id: Int!
     title: String!
@@ -25,3 +25,5 @@ export default gql`
     addVolunteer(username: String!, eventId: Int!): VoidResponse!
   }
 `;
+
+module.exports = event;
