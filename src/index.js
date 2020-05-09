@@ -6,7 +6,6 @@ const {
   mergeTypes,
   mergeResolvers,
 } = require('merge-graphql-schemas');
-const cors = require('cors');
 
 const SECRET = 'ahduojaknsdajkdahlnsjd';
 const SECRET2 = 'adhalsdjasdnlajghuadh';

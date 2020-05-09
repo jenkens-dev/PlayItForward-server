@@ -39,13 +39,16 @@ const resolvers = {
       }
     },
   },
+  //custom event resolver
   Event: {
+    //within an event query if there is a request for the nonprofit field it will hit this resolver
     nonprofit: async ({ id }, args, { models }) => {
       const event = await models.event.findOne({ where: id });
       return await models.nonprofit.findOne({
         where: { id: event.nonprofitId },
       });
     },
+    //within an event query if there is a request for the volunteer field it will hit this resolver
     volunteers: async ({ id }, args, { models }) => {
       const event = await models.event.findOne({ where: id });
       const eventVolunteers = await models.eventVolunteer.findAll({

@@ -70,7 +70,7 @@ const refreshTokens = async (token, refreshToken, models, SECRET, SECRET2) => {
 const tryLogin = async (username, password, type, models, SECRET, SECRET2) => {
   const user = await models[type].findOne({ where: { username } });
   if (!user) {
-    // user with provided email not found
+    // user with provided username not found
     return {
       ok: false,
       errors: [{ path: 'username', message: 'Wrong username' }],
