@@ -1,15 +1,13 @@
-// const { AWSS3Uploader } = require('../lib/uploaders/awss3uploader.ts');
+const resolvers = {
+  Mutation: {
+    singleUpload: async (parent, { file }) => {
+      const { stream, filename, mimetype, encoding } = await file;
 
-// const s3Uploader = new AWSS3Uploader({
-//   accessKeyId: process.env.AWS_ACCESS_KEY,
-//   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-//   destinationBucketName: 'pif-bucket',
-// });
+      // Do work 💪
 
-// const resolvers = {
-//   Mutation: {
-//     singleUpload: s3Uploader.singleFileUploadResolver.bind(s3Uploader),
-//   },
-// };
+      return { filename, mimetype, encoding, url: '' };
+    },
+  },
+};
 
-// module.exports = resolvers;
+module.exports = resolvers;
