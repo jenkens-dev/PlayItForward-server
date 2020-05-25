@@ -1,8 +1,8 @@
-const jwt = require('jsonwebtoken');
-const _ = require('lodash');
-const bcrypt = require('bcrypt');
+import jwt from 'jsonwebtoken';
+import _ from 'lodash';
+import bcrypt from 'bcrypt';
 
-const createTokens = async (user, secret, secret2) => {
+export const createTokens = async (user, secret, secret2) => {
   const createToken = jwt.sign(
     {
       user: _.pick(user, ['id', 'username']),
@@ -26,7 +26,13 @@ const createTokens = async (user, secret, secret2) => {
   return [createToken, createRefreshToken];
 };
 
-const refreshTokens = async (token, refreshToken, models, SECRET, SECRET2) => {
+export const refreshTokens = async (
+  token,
+  refreshToken,
+  models,
+  SECRET,
+  SECRET2,
+) => {
   let userId = 0;
   try {
     const {
@@ -67,7 +73,14 @@ const refreshTokens = async (token, refreshToken, models, SECRET, SECRET2) => {
   };
 };
 
-const tryLogin = async (username, password, type, models, SECRET, SECRET2) => {
+export const tryLogin = async (
+  username,
+  password,
+  type,
+  models,
+  SECRET,
+  SECRET2,
+) => {
   const user = await models[type].findOne({ where: { username } });
   if (!user) {
     // user with provided username not found
@@ -99,10 +112,4 @@ const tryLogin = async (username, password, type, models, SECRET, SECRET2) => {
     token,
     refreshToken,
   };
-};
-
-module.exports = {
-  createTokens,
-  refreshTokens,
-  tryLogin,
 };

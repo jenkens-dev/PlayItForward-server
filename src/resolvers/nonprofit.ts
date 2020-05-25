@@ -1,8 +1,8 @@
-const bcrypt = require('bcrypt');
-const formatErrors = require('../formatErrors');
-const { tryLogin } = require('../auth');
+import bcrypt from 'bcrypt';
+import formatErrors from '../formatErrors';
+import { tryLogin } from '../auth';
 
-const resolvers = {
+export default {
   Query: {
     getNonprofit: (parent, { id }, { models }) => {
       return models.nonprofit.findOne({ where: { id } });
@@ -44,5 +44,3 @@ const resolvers = {
     },
   },
 };
-
-module.exports = resolvers;
