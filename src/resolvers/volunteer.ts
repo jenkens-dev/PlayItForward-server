@@ -1,16 +1,8 @@
-const bcrypt = require('bcrypt');
-const _ = require('lodash');
-const { tryLogin } = require('../auth');
+import bcrypt from 'bcrypt';
+import { tryLogin } from '../auth';
+import formatErrors from '../formatErrors';
 
-const formatErrors = (e, models) => {
-  if (e instanceof models.Sequelize.ValidationError) {
-    //  _.pick({a: 1, b: 2}, 'a') => {a: 1}
-    return e.errors.map((x) => _.pick(x, ['path', 'message']));
-  }
-  return [{ path: 'name', message: 'something went wrong' }];
-};
-
-const resolvers = {
+export default {
   Query: {
     getVolunteer: (parent, { id }, { models }) => {
       return models.volunteer.findOne({ where: { id } });
@@ -59,5 +51,3 @@ const resolvers = {
     },
   },
 };
-
-module.exports = resolvers;

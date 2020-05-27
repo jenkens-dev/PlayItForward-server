@@ -2,10 +2,11 @@
   "name": "server",
   "version": "1.0.0",
   "description": "## Motivation",
-  "main": "index.js",
+  "main": "index.ts",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -19,8 +20,8 @@
   },
   "homepage": "https://github.com/Taljjaa/PlayItForward-server#readme",
   "dependencies": {
-    "apollo-server": "^2.12.0",
-    "aws-sdk": "^2.670.0",
+    "apollo-server": "^2.13.0",
+    "aws-sdk": "^2.673.0",
     "bcrypt": "^4.0.1",
     "graphql": "^15.0.0",
     "jsonwebtoken": "^8.5.1",
@@ -30,5 +31,11 @@
     "pg": "^8.0.2",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.6"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.152",
+    "@types/node": "^13.13.5",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
   }
 }
