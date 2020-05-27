@@ -18,7 +18,7 @@ export namespace ApolloServerFileUploads {
   export interface IUploader {
     singleFileUploadResolver: (
       parent,
-      { file }: { file: Promise<File> },
+      { file }: { file: File },
     ) => Promise<UploadedFileResponse>;
   }
 }
