@@ -6,7 +6,7 @@ export default gql`
     contact: String
     description: String
     logo: String
-    displayName: String
+    displayName: String!
     mission: String
     username: String!
     events: [Event!]
@@ -31,7 +31,11 @@ export default gql`
   }
 
   type Mutation {
-    registerNonprofit(username: String!, password: String!): RegisterResponse!
+    registerNonprofit(
+      username: String!
+      password: String!
+      displayName: String!
+    ): RegisterResponse!
     loginNonprofit(
       username: String!
       password: String!

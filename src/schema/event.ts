@@ -3,9 +3,10 @@ import { gql } from 'apollo-server';
 export default gql`
   type Event {
     id: Int!
+    image: String!
     title: String!
-    date: String
-    address: String
+    date: String!
+    location: String!
     nonprofit: Nonprofit!
     volunteers: [Volunteer!]
   }
@@ -21,9 +22,13 @@ export default gql`
   }
 
   type Mutation {
-    createEvent(title: String!, nonprofitId: Int!): Event!
+    createEvent(
+      title: String!
+      image: String
+      date: String!
+      location: String!
+      nonprofitId: Int!
+    ): Event!
     addVolunteer(username: String!, eventId: Int!): VoidResponse!
   }
 `;
-
-
