@@ -40,7 +40,7 @@ export default {
   },
   Nonprofit: {
     events: ({ id }, args, { models }) => {
-      return models.event.findAll({ nonprofitId: id });
+      return models.event.findAll({ where: { nonprofitId: id } });
     },
   },
 };
