@@ -5,7 +5,7 @@ export default gql`
     id: Int!
     contact: String
     description: String
-    logo: String
+    logo: String!
     displayName: String!
     mission: String
     username: String!
