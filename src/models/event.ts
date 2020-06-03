@@ -5,7 +5,8 @@ export default (sequelize, DataTypes) => {
     location: DataTypes.STRING,
     image: {
       type: DataTypes.STRING,
-      defaultValue: 's3://pif-bucket/pif-logo 6.07.41 PM.png',
+      defaultValue:
+        'https://pif-bucket.s3-us-west-2.amazonaws.com/pif-logo+6.07.41+PM.png',
     },
   });
 
