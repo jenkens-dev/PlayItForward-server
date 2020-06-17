@@ -25,6 +25,7 @@ export default gql`
   type LoginResponse {
     ok: Boolean!
     token: String
+    volunteer: Volunteer
     refreshToken: String
     errors: [Error!]
   }

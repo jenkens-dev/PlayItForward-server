@@ -111,5 +111,6 @@ export const tryLogin = async (
     ok: true,
     token,
     refreshToken,
+    [type]: user,
   };
 };
