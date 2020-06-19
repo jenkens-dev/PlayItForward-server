@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import _ from 'lodash';
 import bcrypt from 'bcrypt';
+import { Token } from 'graphql';
 
 export const createTokens = async (user, secret, secret2) => {
   const createToken = jwt.sign(

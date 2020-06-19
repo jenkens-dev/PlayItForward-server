@@ -31,11 +31,10 @@ export default gql`
   }
 
   type Mutation {
-    registerVolunteer(username: String!, password: String!): RegisterResponse!
+    registerVolunteer(username: String!, password: String!): LoginResponse!
     loginVolunteer(
       username: String!
       password: String!
-      type: String!
     ): LoginResponse!
   }
 `;

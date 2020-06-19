@@ -40,7 +40,6 @@ export default gql`
     loginNonprofit(
       username: String!
       password: String!
-      type: String!
     ): LoginResponse!
   }
 `;

@@ -15,9 +15,9 @@ export default {
   Mutation: {
     loginNonprofit: (
       parent,
-      { username, password, type },
+      { username, password },
       { models, SECRET, SECRET2 },
-    ) => tryLogin(username, password, type, models, SECRET, SECRET2),
+    ) => tryLogin(username, password, 'nonprofit', models, SECRET, SECRET2),
     registerNonprofit: async (
       parent,
       { password, ...otherArgs },
