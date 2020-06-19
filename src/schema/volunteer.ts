@@ -16,12 +16,6 @@ export default gql`
     getVolunteer(id: Int!): Volunteer!
   }
 
-  type RegisterResponse {
-    ok: Boolean!
-    volunteer: Volunteer
-    errors: [Error!]
-  }
-
   type LoginResponse {
     ok: Boolean!
     token: String
@@ -31,10 +25,11 @@ export default gql`
   }
 
   type Mutation {
-    registerVolunteer(username: String!, password: String!): LoginResponse!
-    loginVolunteer(
+    registerVolunteer(
       username: String!
       password: String!
+      confirmPassword: String!
     ): LoginResponse!
+    loginVolunteer(username: String!, password: String!): LoginResponse!
   }
 `;

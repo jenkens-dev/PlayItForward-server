@@ -17,12 +17,6 @@ export default gql`
     getNonprofit(id: Int!): Nonprofit!
   }
 
-  type RegisterResponse {
-    ok: Boolean!
-    nonprofit: Nonprofit
-    errors: [Error!]
-  }
-
   type LoginResponse {
     ok: Boolean!
     nonprofit: Nonprofit
@@ -36,10 +30,7 @@ export default gql`
       username: String!
       password: String!
       displayName: String!
-    ): RegisterResponse!
-    loginNonprofit(
-      username: String!
-      password: String!
     ): LoginResponse!
+    loginNonprofit(username: String!, password: String!): LoginResponse!
   }
 `;
