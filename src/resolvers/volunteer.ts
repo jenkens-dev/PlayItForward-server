@@ -17,7 +17,7 @@ export default {
     registerVolunteer: async (
       parent,
       { password, ...otherArgs },
-      { models },
+      { models, SECRET, SECRET2 },
     ) => {
       try {
         const hashedPassword = await bcrypt.hash(password, 12);
@@ -25,10 +25,14 @@ export default {
           ...otherArgs,
           password: hashedPassword,
         });
-        return {
-          ok: true,
-          volunteer,
-        };
+        return tryLogin(
+          volunteer.username,
+          password,
+          'volunteer',
+          models,
+          SECRET,
+          SECRET2,
+        );
       } catch (err) {
         return {
           ok: false,
