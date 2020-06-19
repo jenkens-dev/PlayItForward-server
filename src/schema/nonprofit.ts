@@ -3,11 +3,11 @@ import { gql } from 'apollo-server';
 export default gql`
   type Nonprofit {
     id: Int!
-    contact: String
-    description: String
+    contact: String!
+    description: String!
     logo: String!
     displayName: String!
-    mission: String
+    mission: String!
     username: String!
     events: [Event!]
   }
@@ -29,7 +29,11 @@ export default gql`
     registerNonprofit(
       username: String!
       password: String!
+      confirmPassword: String!
+      mission: String!
+      description: String!
       displayName: String!
+      contact: String!
     ): LoginResponse!
     loginNonprofit(username: String!, password: String!): LoginResponse!
   }
