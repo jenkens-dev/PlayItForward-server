@@ -1,7 +1,7 @@
 export default (sequelize, DataTypes) => {
   const Nonprofit = sequelize.define('nonprofit', {
     contact: DataTypes.STRING,
-    description: DataTypes.STRING,
+    description: DataTypes.STRING(1000),
     logo: {
       type: DataTypes.STRING,
       defaultValue:

@@ -11,24 +11,36 @@ export default {
   Mutation: {
     loginVolunteer: (
       parent,
-      { username, password, type },
+      { username, password },
       { models, SECRET, SECRET2 },
-    ) => tryLogin(username, password, type, models, SECRET, SECRET2),
+    ) => tryLogin(username, password, 'volunteer', models, SECRET, SECRET2),
     registerVolunteer: async (
       parent,
-      { password, ...otherArgs },
-      { models },
+      { password, confirmPassword, ...otherArgs },
+      { models, SECRET, SECRET2 },
     ) => {
+      if (password !== confirmPassword) {
+        return {
+          ok: false,
+          errors: [
+            { path: 'password', message: "passwords don't match, try again." },
+          ],
+        };
+      }
       try {
         const hashedPassword = await bcrypt.hash(password, 12);
         const volunteer = await models.volunteer.create({
           ...otherArgs,
           password: hashedPassword,
         });
-        return {
-          ok: true,
-          volunteer,
-        };
+        return tryLogin(
+          volunteer.username,
+          password,
+          'volunteer',
+          models,
+          SECRET,
+          SECRET2,
+        );
       } catch (err) {
         return {
           ok: false,
