@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "jenniferkennedy",
+    "password": null,
+    "database": "pif",
+    "logging": true,
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "jenniferkennedy",
+    "password": null,
+    "database": "pif",
+    "logging": true,
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "jenniferkennedy",
+    "password": null,
+    "database": "pif",
+    "logging": true,
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
