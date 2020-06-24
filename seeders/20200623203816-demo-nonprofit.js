@@ -1,11 +1,12 @@
-'use strict';
+const bcrypt = require('bcrypt');
 
 module.exports = {
   up: async (queryInterface) => {
+    let hashedPassword = await bcrypt.hash('pass', 12);
     await queryInterface.bulkInsert('nonprofits', [
       {
         username: 'seattleHumane',
-        password: 'pass',
+        password: hashedPassword,
         contact: '(425) 641-0080',
         description:
           'Seattle Humane is the Puget Sound’s leader in animal adoption, education and welfare. Our top priority is to connect animals in need of rescue with the people who will love them.  Through our outreach, advocacy, and services we strive to ensure that animal companionship is accessible to all.',
@@ -17,7 +18,7 @@ module.exports = {
       },
       {
         username: 'paws',
-        password: 'pass',
+        password: hashedPassword,
         contact: '(425) 787-2500',
         description:
           'PAWS helps cats, dogs and wild animals go home and thrive – whether home is the family room or the forest. We do this by rehabilitating orphaned and injured wildlife, sheltering and adopting homeless cats and dogs, and educating the community to inspire compassionate action for animals.',
@@ -38,7 +39,7 @@ module.exports = {
     await queryInterface.bulkInsert('volunteers', [
       {
         username: 'ultimateLucy',
-        password: 'pass',
+        password: hashedPassword,
         first_name: 'Lucy',
         last_name: 'Suddenly',
         image:
