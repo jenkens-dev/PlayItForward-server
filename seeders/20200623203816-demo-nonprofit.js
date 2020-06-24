@@ -28,6 +28,18 @@ module.exports = {
         created_at: new Date(),
         updated_at: new Date(),
       },
+      {
+        username: 'democracyLab',
+        password: hashedPassword,
+        contact: 'email@email.com',
+        description:
+          'Technology enables our collective intelligence to solve the most challenging social, economic, environmental and civic problems while empowering all members of our societies.',
+        display_name: 'Democracy Lab',
+        mission:
+          'Empower people who use technology to advance the public good.',
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
     ]);
 
     const nonprofits = await queryInterface.sequelize.query(
@@ -49,6 +61,17 @@ module.exports = {
         created_at: new Date(),
         updated_at: new Date(),
       },
+      {
+        username: 'jenkens',
+        password: hashedPassword,
+        first_name: 'Jen',
+        last_name: 'Kennedy',
+        image:
+          'https://pif-bucket.s3-us-west-2.amazonaws.com/pif-logo+6.07.41+PM.png',
+        bio: "I'm Jen and I love anime and programming",
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
     ]);
 
     const volunteers = await queryInterface.sequelize.query(
@@ -67,6 +90,22 @@ module.exports = {
         created_at: new Date(),
         updated_at: new Date(),
       },
+      {
+        title: 'Hack the Planet',
+        date: '1995-09-15',
+        location: 'online',
+        nonprofit_id: nonprofitRows[2].id,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        title: 'Hack to Give Thanks',
+        date: '2050-11-10',
+        location: 'online',
+        nonprofit_id: nonprofitRows[2].id,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
     ]);
 
     const events = await queryInterface.sequelize.query(
@@ -79,6 +118,18 @@ module.exports = {
       {
         volunteer_id: volunteerRows[0].id,
         event_id: eventRows[0].id,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        volunteer_id: volunteerRows[0].id,
+        event_id: eventRows[1].id,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        volunteer_id: volunteerRows[0].id,
+        event_id: eventRows[2].id,
         created_at: new Date(),
         updated_at: new Date(),
       },
