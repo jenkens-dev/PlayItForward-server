@@ -59,7 +59,7 @@ module.exports = {
     await queryInterface.bulkInsert('events', [
       {
         title: 'Tuxes & Tails',
-        date: 'pass',
+        date: '2020-09-26',
         location:
           'Hyatt Regency Bellevue 900 Bellevue Way NE Bellevue, WA 98004',
         nonprofit_id: nonprofitRows[0].id,
