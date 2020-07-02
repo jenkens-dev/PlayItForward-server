@@ -56,6 +56,7 @@ export class AWSS3Uploader implements ApolloServerFileUploads.IUploader {
     parent,
     { file }: { file: ApolloServerFileUploads.File },
   ): Promise<ApolloServerFileUploads.UploadedFileResponse> {
+    console.log(file);
     const { stream, filename, mimetype, encoding } = await file;
     const filePath = this.createDestinationFilePath(
       filename,

@@ -28,7 +28,6 @@ export default gql`
     registerVolunteer(
       username: String!
       password: String!
-      confirmPassword: String!
     ): LoginResponse!
     loginVolunteer(username: String!, password: String!): LoginResponse!
   }

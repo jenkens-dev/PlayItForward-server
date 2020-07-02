@@ -20,17 +20,9 @@ export default {
     ) => tryLogin(username, password, 'nonprofit', models, SECRET, SECRET2),
     registerNonprofit: async (
       parent,
-      { password, confirmPassword, ...args },
+      { password, ...args },
       { models, SECRET, SECRET2 },
     ) => {
-      if (password !== confirmPassword) {
-        return {
-          ok: false,
-          errors: [
-            { path: 'password', message: "passwords don't match, try again." },
-          ],
-        };
-      }
       try {
         const hashedPassword = await bcrypt.hash(password, 12);
         const nonprofit = await models.nonprofit.create({

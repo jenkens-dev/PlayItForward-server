@@ -29,7 +29,6 @@ export default gql`
     registerNonprofit(
       username: String!
       password: String!
-      confirmPassword: String!
       mission: String!
       description: String!
       displayName: String!

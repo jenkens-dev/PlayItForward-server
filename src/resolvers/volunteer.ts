@@ -16,17 +16,9 @@ export default {
     ) => tryLogin(username, password, 'volunteer', models, SECRET, SECRET2),
     registerVolunteer: async (
       parent,
-      { password, confirmPassword, ...otherArgs },
+      { password, ...otherArgs },
       { models, SECRET, SECRET2 },
     ) => {
-      if (password !== confirmPassword) {
-        return {
-          ok: false,
-          errors: [
-            { path: 'password', message: "passwords don't match, try again." },
-          ],
-        };
-      }
       try {
         const hashedPassword = await bcrypt.hash(password, 12);
         const volunteer = await models.volunteer.create({
