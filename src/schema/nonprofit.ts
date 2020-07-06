@@ -33,6 +33,7 @@ export default gql`
       description: String!
       displayName: String!
       contact: String!
+      file: Upload
     ): LoginResponse!
     loginNonprofit(username: String!, password: String!): LoginResponse!
   }
