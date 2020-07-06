@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import { tryLogin } from '../auth';
 import formatErrors from '../formatErrors';
+import s3Uploader from '../singleUpload';
 
 export default {
   Query: {
@@ -16,13 +17,17 @@ export default {
     ) => tryLogin(username, password, 'volunteer', models, SECRET, SECRET2),
     registerVolunteer: async (
       parent,
-      { password, ...otherArgs },
+      { password, file, ...otherArgs },
       { models, SECRET, SECRET2 },
     ) => {
       try {
         const hashedPassword = await bcrypt.hash(password, 12);
+        const { url } = await s3Uploader.singleFileUploadResolver(parent, {
+          file,
+        });
         const volunteer = await models.volunteer.create({
           ...otherArgs,
+          image: url,
           password: hashedPassword,
         });
         return tryLogin(

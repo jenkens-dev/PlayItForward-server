@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt';
 import formatErrors from '../formatErrors';
 import { tryLogin } from '../auth';
 
+
 export default {
   Query: {
     getNonprofit: (parent, { id }, { models }) => {

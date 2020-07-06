@@ -28,6 +28,7 @@ export default gql`
     registerVolunteer(
       username: String!
       password: String!
+      file: Upload
     ): LoginResponse!
     loginVolunteer(username: String!, password: String!): LoginResponse!
   }
