@@ -8,6 +8,8 @@ module.exports = {
         username: 'seattleHumane',
         password: hashedPassword,
         contact: '(425) 641-0080',
+        logo:
+          'https://pif-bucket.s3-us-west-2.amazonaws.com/seattle_humane.png',
         description:
           'Seattle Humane is the Puget Sound’s leader in animal adoption, education and welfare. Our top priority is to connect animals in need of rescue with the people who will love them.  Through our outreach, advocacy, and services we strive to ensure that animal companionship is accessible to all.',
         display_name: 'Seattle Humane',
@@ -20,6 +22,8 @@ module.exports = {
         username: 'paws',
         password: hashedPassword,
         contact: '(425) 787-2500',
+        logo:
+          'https://pif-bucket.s3-us-west-2.amazonaws.com/pif-logo+6.07.41+PM.png',
         description:
           'PAWS helps cats, dogs and wild animals go home and thrive – whether home is the family room or the forest. We do this by rehabilitating orphaned and injured wildlife, sheltering and adopting homeless cats and dogs, and educating the community to inspire compassionate action for animals.',
         display_name: 'PAWS',
@@ -32,6 +36,8 @@ module.exports = {
         username: 'democracyLab',
         password: hashedPassword,
         contact: 'email@email.com',
+        logo:
+          'https://pif-bucket.s3-us-west-2.amazonaws.com/pif-logo+6.07.41+PM.png',
         description:
           'Technology enables our collective intelligence to solve the most challenging social, economic, environmental and civic problems while empowering all members of our societies.',
         display_name: 'Democracy Lab',
