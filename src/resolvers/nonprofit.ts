@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import formatErrors from '../formatErrors';
 import { tryLogin } from '../auth';
+import s3Uploader from '../singleUpload';
 
 export default {
   Query: {
@@ -20,21 +21,17 @@ export default {
     ) => tryLogin(username, password, 'nonprofit', models, SECRET, SECRET2),
     registerNonprofit: async (
       parent,
-      { password, confirmPassword, ...args },
+      { password, file, ...args },
       { models, SECRET, SECRET2 },
     ) => {
-      if (password !== confirmPassword) {
-        return {
-          ok: false,
-          errors: [
-            { path: 'password', message: "passwords don't match, try again." },
-          ],
-        };
-      }
       try {
         const hashedPassword = await bcrypt.hash(password, 12);
+        const { url } = await s3Uploader.singleFileUploadResolver(parent, {
+          file,
+        });
         const nonprofit = await models.nonprofit.create({
           password: hashedPassword,
+          logo: url,
           ...args,
         });
         return tryLogin(

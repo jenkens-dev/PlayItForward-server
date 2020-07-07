@@ -29,11 +29,11 @@ export default gql`
     registerNonprofit(
       username: String!
       password: String!
-      confirmPassword: String!
       mission: String!
       description: String!
       displayName: String!
       contact: String!
+      file: Upload
     ): LoginResponse!
     loginNonprofit(username: String!, password: String!): LoginResponse!
   }

@@ -17,7 +17,11 @@ export default (sequelize, DataTypes) => {
         notNull: { args: true, msg: 'Please provide a password' },
       },
     },
-    image: DataTypes.STRING,
+    image: {
+      type: DataTypes.STRING,
+      defaultValue:
+        'https://pif-bucket.s3-us-west-2.amazonaws.com/default-profile-picture1.jpg',
+    },
     bio: DataTypes.STRING,
     points: { type: DataTypes.INTEGER, defaultValue: 0 },
   });
