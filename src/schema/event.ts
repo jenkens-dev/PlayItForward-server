@@ -24,7 +24,7 @@ export default gql`
   type Mutation {
     createEvent(
       title: String!
-      image: String
+      image: Upload
       date: String!
       location: String!
       nonprofitId: Int!
