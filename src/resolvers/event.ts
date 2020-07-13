@@ -1,4 +1,5 @@
 import formatErrors from '../formatErrors';
+import s3Uploader from '../singleUpload';
 
 export default {
   Query: {
@@ -10,8 +11,11 @@ export default {
     },
   },
   Mutation: {
-    createEvent: (parent, args, { models }) => {
-      return models.event.create(args);
+    createEvent: async (parent, { file, ...args }, { models }) => {
+      const { url } = await s3Uploader.singleFileUploadResolver(parent, {
+        file,
+      });
+      return models.event.create({ ...args, image: url });
     },
     addVolunteer: async (parent, { username, eventId }, { models }) => {
       try {
