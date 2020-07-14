@@ -1,6 +1,6 @@
 {
   "development": {
-    "username": "jenniferkennedy",
+    "username": "flatironschool",
     "password": null,
     "database": "pif",
     "logging": true,
@@ -8,7 +8,7 @@
     "dialect": "postgres"
   },
   "test": {
-    "username": "jenniferkennedy",
+    "username": "flatironschool",
     "password": null,
     "database": "pif",
     "logging": true,
@@ -16,7 +16,7 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "jenniferkennedy",
+    "username": "flatironschool",
     "password": null,
     "database": "pif",
     "logging": true,

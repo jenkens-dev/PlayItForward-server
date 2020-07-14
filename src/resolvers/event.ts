@@ -1,5 +1,5 @@
-import formatErrors from '../formatErrors';
-import s3Uploader from '../singleUpload';
+import formatErrors from "../formatErrors";
+import s3Uploader from "../singleUpload";
 
 export default {
   Query: {
@@ -8,40 +8,42 @@ export default {
     },
     getEvents: (parent, args, { models }) => {
       return models.event.findAll();
-    },
+    }
   },
   Mutation: {
     createEvent: async (parent, { file, ...args }, { models }) => {
+      console.log(file, { ...args });
       const { url } = await s3Uploader.singleFileUploadResolver(parent, {
-        file,
+        file
       });
+      console.log("Getting URL: ", url);
       return models.event.create({ ...args, image: url });
     },
     addVolunteer: async (parent, { username, eventId }, { models }) => {
       try {
         const volunteer = await models.volunteer.findOne({
-          where: { username },
+          where: { username }
         });
         const eventVolunteer = await models.eventVolunteer.create({
           volunteerId: volunteer.id,
-          eventId: eventId,
+          eventId: eventId
         });
         if (!eventVolunteer) {
           return {
             ok: false,
-            errors: [{ path: 'username', message: 'bad things' }],
+            errors: [{ path: "username", message: "bad things" }]
           };
         }
         return {
-          ok: true,
+          ok: true
         };
       } catch (err) {
         return {
           ok: false,
-          errors: formatErrors(err, models),
+          errors: formatErrors(err, models)
         };
       }
-    },
+    }
   },
   //custom event resolver
   Event: {
@@ -49,20 +51,20 @@ export default {
     nonprofit: async ({ id }, args, { models }) => {
       const event = await models.event.findOne({ where: id });
       return await models.nonprofit.findOne({
-        where: { id: event.nonprofitId },
+        where: { id: event.nonprofitId }
       });
     },
     //within an event query if there is a request for the volunteer field it will hit this resolver
     volunteers: async ({ id }, args, { models }) => {
       const event = await models.event.findOne({ where: id });
       const eventVolunteers = await models.eventVolunteer.findAll({
-        where: { eventId: event.id },
+        where: { eventId: event.id }
       });
-      return eventVolunteers.map((eventVolunteer) => {
+      return eventVolunteers.map(eventVolunteer => {
         return models.volunteer.findOne({
-          where: { id: eventVolunteer.volunteerId },
+          where: { id: eventVolunteer.volunteerId }
         });
       });
-    },
-  },
+    }
+  }
 };
