@@ -9,7 +9,7 @@ export default gql`
     displayName: String!
     mission: String!
     username: String!
-    events: [Event!]
+    events: [Event!]!
   }
 
   type Query {

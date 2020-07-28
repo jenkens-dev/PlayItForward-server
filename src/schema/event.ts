@@ -8,7 +8,7 @@ export default gql`
     date: String!
     location: String!
     nonprofit: Nonprofit!
-    volunteers: [Volunteer!]
+    volunteers: [Volunteer!]!
   }
 
   type Query {
